@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors - Modern Red Sea Palette */
+  --color-brand-primary: #002855;
+  /* Deep Red Sea Blue */
+  --color-brand-secondary: #001830;
+  /* Darker Navy */
+  --color-brand-accent: #00B4D8;
+  /* Bright Cyan */
+  --color-brand-accent-light: #90E0EF;
+  /* Light Cyan */
+  --color-brand-surface: #F0F9FF;
+  /* Alice Blue */
+
+  /* Fonts */
+  --font-cairo: var(--font-cairo);
+  --font-inter: var(--font-inter);
+
+  /* Animation */
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+}
+
+:root {
+  /* Default BG/FG */
+  --background: #F0F9FF;
+  --foreground: #002855;
+}
+
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  font-family: var(--font-cairo);
+}
+
+html[lang="en"] {
+  font-family: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  antialiased: true;
+  font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+}
+
+/* Utilities */
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #00B4D8 0%, #90E0EF 50%, #00B4D8 100%);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-nav {
+    background: rgba(15, 23, 42, 0.6);
+    /* Darker glass for nav */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
